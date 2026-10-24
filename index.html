@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أكاديمية نَجم كود Najm Code - أساسيات بايثون</title>
+    <title>أكاديمية نَجم كود Najm Code - الرئيسية</title>
     <style>
         :root {
             --najm-blue: #0A2540;
@@ -41,10 +41,18 @@
             border-bottom: 2px solid #EDF2F7;
         }
 
+        .header-academy h1 {
+            color: var(--najm-blue);
+            margin: 10px 0;
+            font-size: 2.2rem;
+        }
+
         .header-academy h2 {
             color: var(--najm-pink);
             margin: 5px 0;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
+            border: none;
+            padding: 0;
         }
 
         .header-academy span {
@@ -64,113 +72,64 @@
             font-size: 1.4rem;
         }
 
-        p, li {
+        p {
             font-size: 1.1rem;
         }
 
-        code {
-            background-color: #EDF2F7;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'Courier New', Courier, monospace;
-            color: var(--najm-pink);
-            font-weight: bold;
+        .lessons-list {
+            margin-top: 30px;
         }
 
-        pre {
-            background-color: var(--najm-blue);
-            color: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            direction: ltr;
-            text-align: left;
-            overflow-x: auto;
-        }
-
-        .quiz-section {
-            background-color: #F1FAEE;
+        .lesson-card {
+            background: #F1FAEE;
             border: 2px solid var(--najm-cyan);
-            padding: 25px;
+            padding: 20px;
             border-radius: 10px;
-            margin-top: 40px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s;
         }
 
-        .question {
-            margin-bottom: 25px;
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        .lesson-card:hover {
+            transform: translateY(-2px);
         }
 
-        .question h3 {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
+        .lesson-info h3 {
+            margin: 0 0 5px 0;
             color: var(--najm-blue);
+            font-size: 1.2rem;
         }
 
-        label {
-            display: block;
-            background: #fff;
-            padding: 10px 15px;
-            margin: 8px 0;
-            border-radius: 6px;
-            border: 1px solid #CBD5E0;
-            cursor: pointer;
-            transition: all 0.2s;
+        .lesson-info p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #4A5568;
         }
 
-        label:hover {
-            background-color: #E2E8F0;
-        }
-
-        input[type="radio"] {
-            margin-left: 10px;
-        }
-
-        .check-btn {
+        .lesson-btn {
             background-color: var(--najm-pink);
             color: white;
-            border: none;
-            padding: 12px 25px;
-            font-size: 1.1rem;
+            padding: 10px 20px;
             border-radius: 8px;
-            cursor: pointer;
-            display: block;
-            width: 100%;
-            margin-top: 20px;
+            text-decoration: none;
             font-weight: bold;
             transition: background 0.2s;
         }
 
-        .check-btn:hover {
+        .lesson-btn:hover {
             background-color: #e02e5b;
         }
 
-        .feedback {
-            margin-top: 8px;
-            font-weight: bold;
-            font-size: 0.95rem;
-        }
-
-        .result-msg {
-            margin-top: 20px;
-            font-weight: bold;
+        .footer {
             text-align: center;
-            font-size: 1.1rem;
-            padding: 10px;
-            border-radius: 6px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+            color: #718096;
+            border-top: 1px solid #EDF2F7;
+            padding-top: 20px;
         }
-
-        .result-msg a {
-            color: var(--najm-pink);
-            text-decoration: underline;
-            font-weight: bold;
-            margin: 0 3px;
-        }
-
-        .correct-text { color: #2B8A3E; }
-        .incorrect-text { color: #C92A2A; }
     </style>
 </head>
 <body>
@@ -178,127 +137,38 @@
     <div class="container">
         <div class="header-academy">
             <span>Najm Code Academy</span>
-            <h2>أساسيات لغة بايثون - Python Basics</h2>
+            <h1>مرحباً بك في أكاديمية نَجم كود</h1>
+            <h2>مسار أساسيات لغة بايثون - Python Basics</h2>
         </div>
         
-        <h2>تعريف المتغيرات (Declaring Variables)</h2>
-        <p>في لغة بايثون، المتغيرات تشبه الصناديق التي تحمل تسميات لتخزين الإشارة إلى البيانات بأنواعها المختلفة. لإنشاء متغير، اكتب اسمه على اليسار، يليه معامل التخصيص <code>=</code> والقيمة التي تريد تخزينها على اليمين.</p>
-        <p>إليك مثالاً لكيفية إنشاء متغيرات للاسم والعمر:</p>
-        <pre><code>name = 'John Doe'
-age = 25</code></pre>
-        <p>في المثال أعلاه، يحمل المتغير <code>name</code> القيمة <code>'John Doe'</code>. هذه القيمة عبارة عن سلسلة نصية (String)، وهي عبارة عن مجموعة من الحروف تمثل النصوص وتُكتب بين علامات تنصيص مفردة أو مزدوجة.</p>
+        <h2>دروس الدورة</h2>
+        <p>اختر الدرس الذي تريد البدء في دراسته وحل تدريباته:</p>
 
-        <h2>قواعد تسمية المتغيرات (Variables Naming Rules)</h2>
-        <p>عند تسمية المتغيرات في بايثون، يجب مراعاة القواعد الهامة التالية:</p>
-        <ul>
-            <li>أسماء المتغيرات يمكن أن تبدأ بحرف أو شرطة سفلية <code>_</code> فقط، ولا تبدأ برقم.</li>
-            <li>يمكن أن تحتوي أسماء المتغيرات على أحرف وأرقام وشرطات سفلية.</li>
-            <li>أسماء المتغيرات حساسة لحالة الأحرف: <code>age</code> و <code>Age</code> و <code>AGE</code> تعتبر متغيرات مختلفة تماماً.</li>
-            <li>لا يمكن أن يكون اسم المتغير كلمة محجوزة في بايثون مثل <code>if</code> أو <code>class</code> أو <code>def</code>.</li>
-        </ul>
-
-        <h2>اتفاقيات التسمية (Variables Naming Conventions)</h2>
-        <p>من الشائع تسمية المتغيرات بحروف صغيرة مع فصل الكلمات بشرطة سفلية، وهو ما يُعرف بـ <strong>Snake Case</strong>:</p>
-        <pre><code>my_variable_name = 'Najm Code'</code></pre>
-        <p>كما يُفضل دائماً استخدام أسماء وصفية واضحة وتجنب استخدام أسماء الحروف المفردة مثل <code>x</code> لأنها لا توضح الغرض من المتغير.</p>
-
-        <h2>كتابة التعليقات (Writing Comments)</h2>
-        <p>رمز الشباك <code>#</code> وما يليه يعتبر تعليقاً يتجاهله المترجم، ويُستخدم لإضافة ملاحظات وشروحات داخل الكود.</p>
-        <pre><code># هذا تعليق لسطر واحد</code></pre>
-
-        <!-- قسم الأسئلة والتفاعلية -->
-        <div class="quiz-section">
-            <h2>اختبر معلوماتك (Quiz)</h2>
-            
-            <!-- السؤال الأول -->
-            <div class="question" id="q1-box">
-                <h3>1. ما هي الطريقة الصحيحة للإعلان عن متغير يحمل القيمة 25 باسم age في بايثون؟</h3>
-                <label dir="ltr"><input type="radio" name="q1" value="a"> 25 = age</label>
-                <label dir="ltr"><input type="radio" name="q1" value="b"> age  25 </label> 
-                <label dir="ltr"><input type="radio" name="q1" value="c"> = age 25</label>
-                <label dir="ltr"><input type="radio" name="q1" value="d" data-correct="true"> age = 25</label>
-                <div class="feedback" id="f1"></div>
+        <div class="lessons-list">
+            <!-- كارت الدرس الأول (المتغيرات) -->
+            <div class="lesson-card">
+                <div class="lesson-info">
+                    <h3>الدرس الأول: تعريف وقواعد تسمية المتغيرات</h3>
+                    <p>تعلم كيفية إنشاء المتغيرات، قواعد تسميتها، وكتابة التعليقات في بايثون مع كويز تفاعلي.</p>
+                </div>
+                <!-- اسم الملف اللي هترفع فيه كود الدرس اللي عملناه قبل كده -->
+                <a href="python-basics-1.html" class="lesson-btn">ابدأ الدرس</a>
             </div>
 
-            <!-- السؤال الثاني -->
-            <div class="question" id="q2-box">
-                <h3>2. أي مما يلي يُعد خطأً وليس قاعدة لتسمية المتغيرات؟</h3>
-                <label><input type="radio" name="q2" value="a"> يجب أن تبدأ أسماء المتغيرات بحرف أو شرطة سفلية.</label>
-                <label><input type="radio" name="q2" value="b" data-correct="true"> أسماء المتغيرات غير حساسة لحالة الأحرف (Case-insensitive).</label>
-                <label><input type="radio" name="q2" value="c"> لا يمكن استخدام الكلمات المحجوزة في بايثون.</label>
-                <label><input type="radio" name="q2" value="d"> يمكن أن تحتوي أسماء المتغيرات على أحرف وأرقام وشرطات سفلى.</label>
-                <div class="feedback" id="f2"></div>
+            <!-- دروس مستقبلية تقدر تضيفها بنفس الطريقة -->
+            <div class="lesson-card" style="opacity: 0.7;">
+                <div class="lesson-info">
+                    <h3>الدرس الثاني: أنواع البيانات (قريباً)</h3>
+                    <p>تعرف على النصوص والأرقام وأنواع البيانات المختلفة في لغة بايثون.</p>
+                </div>
+                <span class="lesson-btn" style="background-color: #CBD5E0; cursor: not-allowed;">قريباً</span>
             </div>
+        </div>
 
-            <!-- السؤال الثالث -->
-            <div class="question" id="q3-box">
-                <h3>3. لماذا يجب تجنب استخدام أسماء المتغيرات المكونة من حرف واحد؟</h3>
-                <label><input type="radio" name="q3" value="a" data-correct="true"> لأنها لا توضح الغرض أو المعنى من المتغير.</label>
-                <label><input type="radio" name="q3" value="b"> لأن لغة بايثون لا تسمح بها نهائياً.</label>
-                <label><input type="radio" name="q3" value="c"> لأنها تزيد من خطر أخطاء الصياغة (SyntaxError).</label>
-                <label><input type="radio" name="q3" value="d"> لأنها تستهلك ذاكرة أكبر من الأسماء الطويلة.</label>
-                <div class="feedback" id="f3"></div>
-            </div>
-
-            <button class="check-btn" onclick="checkAnswers()">تحقق من الإجابات</button>
-            <div class="result-msg" id="result"></div>
+        <div class="footer">
+            <p>جميع الحقوق محفوظة © أكاديمية نَجم كود 2026</p>
         </div>
     </div>
 
-    <script>
-        function checkAnswers() {
-            let score = 0;
-            let total = 3;
-            let wrongLinks = [];
-
-            // السؤال الأول
-            let q1Selected = document.querySelector('input[name="q1"]:checked');
-            let f1 = document.getElementById('f1');
-            if (q1Selected && q1Selected.getAttribute('data-correct') === 'true') {
-                score++;
-                f1.innerHTML = "إجابة صحيحة! ✅";
-                f1.className = "feedback correct-text";
-            } else {
-                f1.innerHTML = "إجابة خاطئة ❌";
-                f1.className = "feedback incorrect-text";
-                wrongLinks.push('<a href="#q1-box">السؤال الأول</a>');
-            }
-
-            // السؤال الثاني
-            let q2Selected = document.querySelector('input[name="q2"]:checked');
-            let f2 = document.getElementById('f2');
-            if (q2Selected && q2Selected.getAttribute('data-correct') === 'true') {
-                score++;
-                f2.innerHTML = "إجابة صحيحة! ✅";
-                f2.className = "feedback correct-text";
-            } else {
-                f2.innerHTML = "إجابة خاطئة ❌";
-                f2.className = "feedback incorrect-text";
-                wrongLinks.push('<a href="#q2-box">السؤال الثاني</a>');
-            }
-
-            // السؤال الثالث
-            let q3Selected = document.querySelector('input[name="q3"]:checked');
-            let f3 = document.getElementById('f3');
-            if (q3Selected && q3Selected.getAttribute('data-correct') === 'true') {
-                score++;
-                f3.innerHTML = "إجابة صحيحة! ✅";
-                f3.className = "feedback correct-text";
-            } else {
-                f3.innerHTML = "إجابة خاطئة ❌";
-                f3.className = "feedback incorrect-text";
-                wrongLinks.push('<a href="#q3-box">السؤال الثالث</a>');
-            }
-
-            let resultDiv = document.getElementById('result');
-            if (score === total) {
-                resultDiv.className = "result-msg correct-text";
-                resultDiv.innerHTML = `رائع جداً يا بطل! لقد حصلت على الدرجة الكاملة (${score}/${total}) 🌟`;
-            } else {
-                resultDiv.className = "result-msg incorrect-text";
-                resultDiv.innerHTML = `لقد أجبت على ${score} من ${total} بشكل صحيح. راجع الأسئلة التالية: ${wrongLinks.join('، ')} وحاول مرة أخرى! 💪`;
-            }
-        }
-    </script>
 </body>
 </html>
