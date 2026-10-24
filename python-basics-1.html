@@ -168,6 +168,23 @@
             font-weight: bold;
             margin: 0 3px;
         }
+        .nav-btn {
+            display: block;
+            width: 200px;
+            margin: 40px auto;
+            padding: 12px 0;
+            text-align: center;
+            background-color: var(--najm-blue);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        
+        .nav-btn:hover {
+            background-color: var(--najm-cyan);
+        }
 
         .correct-text { color: #2B8A3E; }
         .incorrect-text { color: #C92A2A; }
@@ -243,6 +260,7 @@ age = 25</code></pre>
             <button class="check-btn" onclick="checkAnswers()">تحقق من الإجابات</button>
             <div class="result-msg" id="result"></div>
         </div>
+        <a href="index.html" class="nav-btn">العودة للصفحة الرئيسية</a>
     </div>
 
     <script>
